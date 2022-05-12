@@ -31,17 +31,17 @@
     {
         if( node.innerHTML && node.childNodes && node.childNodes[ 3 ] )
         {
-			var elnode = node.childNodes[ 3 ];
-			if( elnode && elnode.lastElementChild )
-			{
-				var style = window.getComputedStyle( elnode.lastElementChild );
-				if( style && style.color )
-				{
-					if( style.color != "rgb(255, 255, 255)" )
-						document.getElementsByClassName( "content" )[ 0 ].removeChild( node );
-				}
-			}
-		}
+	    var elnode = node.childNodes[ 3 ];
+	    if( elnode && elnode.lastElementChild )
+	    {
+	        var style = window.getComputedStyle( elnode.lastElementChild );
+	        if( style && style.color )
+	        {
+	            if( style.color != "rgb(255, 255, 255)" )
+	                document.getElementsByClassName( "content" )[ 0 ].removeChild( node );
+	        }
+	    }
+	}
     }
 
     function Scan( )
