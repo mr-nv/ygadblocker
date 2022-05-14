@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         yougame.biz adblocker
 // @namespace    http://github.com/mr-nv/
-// @version      1.1
+// @version      1.1.1
 // @updateURL    https://raw.githubusercontent.com/mr-nv/ygadblocker/master/ygadblocker.user.js
 // @description  big
 // @author       mrnv
@@ -37,7 +37,7 @@
 	        var style = window.getComputedStyle( elnode.lastElementChild );
 	        if( style && style.color )
 	        {
-	            if( style.color != "rgb(255, 255, 255)" )
+	            if( style.color != "rgb(255, 255, 255)" && style.color != "rgb(212, 24, 59)" )
 	                document.getElementsByClassName( "content" )[ 0 ].removeChild( node );
 	        }
 	    }
