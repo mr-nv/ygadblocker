@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         yougame.biz adblocker
 // @namespace    http://github.com/mr-nv/
-// @version      1.1.1
+// @version      1.1.2
 // @updateURL    https://raw.githubusercontent.com/mr-nv/ygadblocker/master/ygadblocker.user.js
 // @description  big
 // @author       mrnv
@@ -31,17 +31,26 @@
     {
         if( node.innerHTML && node.childNodes && node.childNodes[ 3 ] )
         {
-	    var elnode = node.childNodes[ 3 ];
-	    if( elnode && elnode.lastElementChild )
-	    {
-	        var style = window.getComputedStyle( elnode.lastElementChild );
-	        if( style && style.color )
-	        {
-	            if( style.color != "rgb(255, 255, 255)" && style.color != "rgb(212, 24, 59)" )
-	                document.getElementsByClassName( "content" )[ 0 ].removeChild( node );
-	        }
-	    }
-	}
+            var elnode = node.childNodes[ 3 ];
+            if( elnode && elnode.childNodes )
+            {
+                for( var i = 0; i < elnode.childNodes.length; i++ )
+                {
+                    if( elnode.childNodes[ i ] )
+                    {
+                        var childstyle = elnode.childNodes[ i ].style;
+                        if( childstyle && childstyle.color )
+                        {
+                            if( childstyle.color != "rgb(255, 255, 255)" && childstyle.color != "rgb(212, 24, 59)" )
+                            {
+                                document.getElementsByClassName( "content" )[ 0 ].removeChild( node );
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     function Scan( )
